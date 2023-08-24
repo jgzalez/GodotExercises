@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1692907500
+::res://::1692908188
 default_env.tres::Environment::7856033676895189327::1692906583::0::1::::<><>::
 Gate.gd::GDScript::-1::1692906583::0::1::::<>StaticBody2D<>::
 Gate.tscn::PackedScene::-1::1692906583::0::1::::<><>::res://resources/graphics/objects/gate.png<>res://Gate.gd
@@ -209,7 +209,7 @@ bg.png::CompressedTexture2D::2128367963257331517::1692302578::1692906583::1::::<
 over.png::CompressedTexture2D::8558961844073427147::1692302578::1692906583::1::::<><>::
 progress.png::CompressedTexture2D::9117449627025674629::1692302578::1692906583::1::::<><>::
 ::res://scenes/::1692906583
-House.tscn::PackedScene::572229837440024270::1692906583::0::1::::<><>::uid://bdrwxdf6hktdb::::res://resources/graphics/tilesets/interior.png
+House.tscn::PackedScene::572229837440024270::1692906583::0::1::::<><>::uid://bdrwxdf6hktdb
 ::res://scenes/Assets/::1692906583
 Grenade.gd::GDScript::-1::1692906583::0::1::::<>RigidBody2D<>::
 Grenade.tscn::PackedScene::-1::1692906583::0::1::::<><>::res://resources/graphics/projectiles/grenade.png<>res://scenes/Assets/Grenade.gd
