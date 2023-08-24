@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu34amtobpa65"]
+
+[ext_resource type="Script" path="res://scenes/Player/Player.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c05d3g6divmh4" path="res://resources/graphics/player/player.png" id="3"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 61.0082
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1")
+
+[node name="Soldier" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+rotation = 1.5708
+texture = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-35, -2)
+shape = SubResource("1")
+
+[node name="TimerAct" type="Timer" parent="."]
+
+[node name="TimerAct2" type="Timer" parent="."]
+
+[node name="LaserStartPositions" type="Node2D" parent="."]
+position = Vector2(12, 17)
+rotation = 1.5708
+
+[node name="Marker2D" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(17, -95)
+
+[node name="Position2D2" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(10, -95)
+
+[connection signal="timeout" from="TimerAct" to="." method="_on_TimerAct_timeout"]
+[connection signal="timeout" from="TimerAct2" to="." method="_on_TimerAct2_timeout"]
