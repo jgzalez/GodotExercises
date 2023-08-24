@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://resources/graphics/objects/gate.png" type="Texture" id=1]
+[ext_resource path="res://resources/graphics/objects/gate.png" type="Texture2D" id=1]
 [ext_resource path="res://Gate.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 179.327, 85.2432 )
+size = Vector2( 179.327, 85.2432 )
 
 [node name="Gate" type="StaticBody2D"]
 position = Vector2( 16.0125, -312.112 )
 script = ExtResource( 2 )
 
-[node name="Gate" type="Sprite" parent="."]
+[node name="Gate" type="Sprite2D" parent="."]
 position = Vector2( 461.537, -146.389 )
 texture = ExtResource( 1 )
 
@@ -24,7 +24,7 @@ shape = SubResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 1.14441e-05, 0 )
-polygon = PoolVector2Array( -960.75, -961.193, -969.228, 417.99, -920.248, 553.331, -772.368, 645.399, 82.8883, 637.113, 92.3074, 408.783, 956.983, 417.99, 961.692, 623.302, 1812.24, 637.113, 1956.35, 562.537, 2027.94, 408.783, 2032.65, -940.017 )
+polygon = PackedVector2Array( -960.75, -961.193, -969.228, 417.99, -920.248, 553.331, -772.368, 645.399, 82.8883, 637.113, 92.3074, 408.783, 956.983, 417.99, 961.692, 623.302, 1812.24, 637.113, 1956.35, 562.537, 2027.94, 408.783, 2032.65, -940.017 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

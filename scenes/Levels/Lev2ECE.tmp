@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmkqatwol8l6p"]
+
+[ext_resource type="PackedScene" path="res://Gate.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bd7bf3ardkfht" path="res://resources/graphics/ground/stones.png" id="2"]
+[ext_resource type="Script" path="res://scenes/Levels/Level.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://6fhap6jg0wkp" path="res://resources/graphics/decals/dirt_patch.png" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/Player/Player.tscn" id="5"]
+
+[sub_resource type="TileSet" id="1"]
+
+[node name="Level" type="Node2D"]
+z_as_relative = false
+position = Vector2(-48, -5)
+scale = Vector2(1.06167, 1.08615)
+script = ExtResource("3")
+
+[node name="Ground" type="Node2D" parent="."]
+position = Vector2(-1447.72, -2223.45)
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(668.758, 756.188)
+texture = ExtResource("2")
+region_rect = Rect2(1000, 1000, 1000, 1000)
+
+[node name="Decoration" type="Sprite2D" parent="Ground"]
+position = Vector2(244.269, 1069.83)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4")
+
+[node name="TileMap" type="TileMap" parent="Ground"]
+tile_set = SubResource("1")
+format = 2
+
+[node name="Gate" parent="." instance=ExtResource("1")]
+position = Vector2(52.7471, -380.242)
+
+[node name="Player" parent="." instance=ExtResource("5")]
+position = Vector2(539.716, 396.814)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[connection signal="playerEnter" from="Gate" to="." method="_on_Gate_playerEnter"]
+[connection signal="playerExit" from="Gate" to="." method="_on_Gate_playerExit"]
+[connection signal="grenade_is_thrown" from="Player" to="." method="_on_Player_grenade_is_thrown"]
+[connection signal="laser_is_shot" from="Player" to="." method="_on_Player_laser_is_shot"]
