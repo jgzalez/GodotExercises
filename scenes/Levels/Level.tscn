@@ -1,14 +1,92 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=3 uid="uid://bmkqatwol8l6p"]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://scenes/Logo.gd" type="Script" id=2]
-[ext_resource path="res://scenes/Levels/Level.gd" type="Script" id=3]
+[ext_resource type="PackedScene" path="res://Gate.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bd7bf3ardkfht" path="res://resources/graphics/ground/stones.png" id="2"]
+[ext_resource type="Script" path="res://scenes/Levels/Level.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://24pdnaofx2hg" path="res://resources/graphics/tilesets/outside_walls.png" id="3_8g85p"]
+[ext_resource type="Texture2D" uid="uid://6fhap6jg0wkp" path="res://resources/graphics/decals/dirt_patch.png" id="4"]
+[ext_resource type="PackedScene" uid="uid://cu34amtobpa65" path="res://scenes/Player/Player.tscn" id="5"]
+[ext_resource type="Texture2D" uid="uid://bfmxca43mbf30" path="res://resources/graphics/tilesets/soil.png" id="5_p8xag"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_50xw4"]
+texture = ExtResource("3_8g85p")
+texture_region_size = Vector2i(390, 390)
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:0/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xhlvo"]
+texture = ExtResource("5_p8xag")
+texture_region_size = Vector2i(390, 390)
+0:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+1:1/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pnjsy"]
+tile_size = Vector2i(390, 390)
+sources/0 = SubResource("TileSetAtlasSource_50xw4")
+sources/3 = SubResource("TileSetAtlasSource_xhlvo")
 
 [node name="Level" type="Node2D"]
 z_as_relative = false
-script = ExtResource( 3 )
+scale = Vector2(0.978, 1)
+script = ExtResource("3")
 
-[node name="Logo" type="Sprite" parent="."]
-position = Vector2( 2, 0 )
-texture = ExtResource( 1 )
-script = ExtResource( 2 )
+[node name="Ground" type="Node2D" parent="."]
+position = Vector2(-1447.72, -2223.45)
+
+[node name="Decoration" type="Sprite2D" parent="Ground"]
+position = Vector2(882.281, 2677.45)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4")
+
+[node name="Soil" type="Sprite2D" parent="Ground"]
+texture_repeat = 2
+position = Vector2(2034.28, 2598.88)
+scale = Vector2(1.53094, 1.29279)
+texture = ExtResource("2")
+region_enabled = true
+region_rect = Rect2(-40.1127, -94.2047, 8591.45, 4289.69)
+
+[node name="TileMap" type="TileMap" parent="Ground"]
+position = Vector2(2162.44, 2645.45)
+scale = Vector2(1.00424, 1)
+tile_set = SubResource("TileSet_pnjsy")
+format = 2
+layer_0/name = "Soil"
+layer_0/tile_data = PackedInt32Array(-589836, 65539, 1, -524300, 65539, 1, -458764, 65539, 1, -393228, 65539, 1, -327692, 131075, 1, -327693, 65539, 1, -262157, 65539, 1, -196621, 65539, 1, -131085, 65539, 1, -65549, 65539, 1, -13, 65539, 1, 65523, 65539, 1, 65522, 65539, 1, 131058, 65539, 1, 131057, 65539, 1, 131056, 65539, 1, 131055, 65539, 1, 131054, 65539, 1, 131053, 65539, 1, 65517, 65539, 1, 65516, 65539, 1, -21, 65539, 1, -65557, 65539, 1, -131094, 65539, 1, -196630, 65539, 1, -262166, 65539, 1, -262165, 65539, 1, -327701, 65539, 1, -327700, 65539, 1, -393236, 65539, 1, -458771, 65539, 1, -524306, 65539, 1, -524305, 65539, 1, -589841, 65539, 1, -589840, 65539, 1, -655376, 65539, 1, -655375, 65539, 1, -720910, 65539, 1, -720909, 65539, 1, -655373, 65539, 1, -655372, 65539, 1, -196625, 65539, 1, -262161, 65539, 1, -327697, 65539, 1, -393233, 65539, 1, -458769, 65539, 1, -458770, 65539, 1, -393234, 65539, 1, -393235, 65539, 1, -327699, 65539, 1, -262163, 65539, 1, -262164, 65539, 1, -196628, 65539, 1, -196629, 65539, 1, -131093, 65539, 1, -131092, 65539, 1, -65556, 65539, 1, -20, 65539, 1, -19, 65539, 1, -65555, 65539, 1, -131091, 65539, 1, -196627, 65539, 1, -196626, 65539, 1, -262162, 65539, 1, -327698, 65539, 1, -131090, 65539, 1, -65554, 65539, 1, -18, 65539, 1, 65518, 65539, 1, 65519, 65539, 1, -17, 65539, 1, -65553, 65539, 1, -131089, 65539, 1, -131088, 65539, 1, -196624, 65539, 1, -262160, 65539, 1, -327696, 65539, 1, -393232, 65539, 1, -458768, 65539, 1, -524304, 65539, 1, -524303, 65539, 1, -589839, 65539, 1, -589838, 65539, 1, -655374, 65539, 1, -524302, 65539, 1, -458766, 65539, 1, -458767, 65539, 1, -393231, 65539, 1, -327695, 65539, 1, -262159, 65539, 1, -196623, 65539, 1, -131087, 65539, 1, -65551, 65539, 1, -65552, 65539, 1, -16, 65539, 1, 65520, 65539, 1, 65521, 65539, 1, -15, 65539, 1, -14, 65539, 1, -65550, 65539, 1, -131086, 65539, 1, -196622, 65539, 1, -262158, 65539, 1, -327694, 65539, 1, -393230, 65539, 1, -393229, 65539, 1, -458765, 65539, 1, -524301, 65539, 1, -589837, 65539, 1, -720911, 3, 0, -655377, 3, 0, -589842, 3, 0, -524307, 3, 0, -458772, 3, 0, -393237, 3, 0, -327702, 3, 0, -65558, 3, 2, 65515, 3, 2, 131052, 3, 2, 196590, 65539, 2, 196591, 65539, 2, 196592, 65539, 2, 196593, 65539, 2, 196594, 131075, 2, 131059, 131075, 2, 65524, 131075, 1, -12, 131075, 1, -65548, 131075, 1, -131084, 131075, 1, -196620, 131075, 1, -262156, 131075, 1, -65547, 131075, 1, -131083, 131075, 1, -196619, 131075, 1, -262155, 131075, 1, -327691, 131075, 1, -393227, 131075, 1, -458763, 131075, 1, -524299, 131075, 1, -589835, 131075, 1, -655371, 131075, 0, -720908, 131075, 0, -786446, 65539, 0, -786445, 65539, 0, 327681, 3, 1, 327682, 65539, 1, 327683, 65539, 1, 327684, 65539, 1, 327685, 65539, 1, 327686, 65539, 1, 327687, 65539, 1, 262151, 65539, 1, 262152, 65539, 1, 196616, 65539, 1, 196615, 65539, 1, 196614, 65539, 1, 262150, 65539, 1, 327688, 65539, 1, 262146, 65539, 0, 262147, 65539, 0, 262148, 65539, 0, 262149, 65539, 1, 131078, 65539, 0, 131079, 65539, 0, 131080, 65539, 0, 131077, 3, 0, 196613, 3, 1, 131081, 131075, 0, 196617, 131075, 1, 262153, 131075, 1, 327689, 131075, 1, 393224, 65539, 2, 393223, 65539, 2, 393222, 65539, 2, 393221, 65539, 2, 393220, 65539, 2, 393219, 65539, 2, 393218, 65539, 2, 393217, 3, 2, 262145, 3, 0, 393225, 131075, 2)
+layer_1/name = "Walls"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(65535, 65536, 0, 0, 65536, 0, 1, 65536, 0, 2, 131072, 0, 458751, 0, 0, 393216, 65536, 0, 393217, 65536, 0, 393218, 65536, 0, 393219, 65536, 0, 393220, 65536, 0, 393221, 65536, 0, 393222, 65536, 0, 393223, 65536, 0, 393224, 65536, 0, 393225, 131072, 2, 327689, 0, 2, 262153, 0, 2, 196617, 0, 2, 131081, 131072, 1, 131080, 65536, 0, 131079, 65536, 0, 131078, 65536, 0, 131077, 65536, 1, 196613, 0, 2, 262149, 131072, 2, 262148, 65536, 0, 262147, 65536, 0, 262146, 65536, 0, 262145, 0, 0, 65534, 0, 0)
+
+[node name="Gate" parent="." instance=ExtResource("1")]
+position = Vector2(52.7471, -380.242)
+
+[node name="Player" parent="." instance=ExtResource("5")]
+position = Vector2(539.716, 396.814)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+
+[connection signal="playerEnter" from="Gate" to="." method="_on_Gate_playerEnter"]
+[connection signal="playerExit" from="Gate" to="." method="_on_Gate_playerExit"]
+[connection signal="grenade_is_thrown" from="Player" to="." method="_on_Player_grenade_is_thrown"]
+[connection signal="laser_is_shot" from="Player" to="." method="_on_Player_laser_is_shot"]

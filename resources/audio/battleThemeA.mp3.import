@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/battleThemeA.mp3-88b84f915000547e5d635999e59c83d1.mp3str"
+uid="uid://ba6jymjq8j43v"
+path="res://.godot/imported/battleThemeA.mp3-88b84f915000547e5d635999e59c83d1.mp3str"
 
 [deps]
 
 source_file="res://resources/audio/battleThemeA.mp3"
-dest_files=[ "res://.import/battleThemeA.mp3-88b84f915000547e5d635999e59c83d1.mp3str" ]
+dest_files=["res://.godot/imported/battleThemeA.mp3-88b84f915000547e5d635999e59c83d1.mp3str"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
